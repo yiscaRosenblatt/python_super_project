@@ -1,8 +1,8 @@
 class Product:
-    def __init__(self,price,name, makat):
+    def __init__(self, name, price, date):
+        self.name = " "
         self.price = price
-        name = ""
-        makat = 0
+        self.date = date
 
 
 
