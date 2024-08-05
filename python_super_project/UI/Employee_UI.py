@@ -1,4 +1,4 @@
-from UI import Usher_UI, Cashier_UI, ShiftManager_UI, Administrator_UI
+from python_super_project.UI import Cashier_UI, ShiftManager_UI, Usher_UI, Administrator_UI
 
 
 class Employee_UI:
@@ -9,7 +9,7 @@ class Employee_UI:
         print("Which employee?\n1. Usher\n2. cashier\n3. shift manager\n4. Administrator")
         employee = int(input())
         if (employee == 1):
-            Usher_UI.Usher_UI.show
+            Usher_UI.Usher_UI().show()
         if (employee == 2):
             Cashier_UI.Cashier_UI.show
         if (employee == 3):
