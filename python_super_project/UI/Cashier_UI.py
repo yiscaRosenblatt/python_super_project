@@ -4,3 +4,6 @@ class Cashier_UI:
         pass
 
     # print("hello cashier. Choose your option:\n ")
+
+    def show(self):
+        pass

@@ -1,36 +1,25 @@
-from python_super_project.DataModels.Employee import Usher
-from python_super_project.UI import SuperMain_UI
+# In Super.py
+from python_super_project.Sections.HygieneSection import HygieneSection
+from python_super_project.Sections.MeatSection import MeatSection
+from python_super_project.Sections.VegetablesSection import VegetablesSection
+from python_super_project.UI.SuperMain_UI import SuperMain_UI
+from colorama import Fore
 
 
 class Super:
     def __init__(self):
-        self.sections = []
-        self.pro = []
-        self.usher = []
-        self.clients = []
+        self.ushers = []
+        self.load_entities()
+        self.meat_section = MeatSection()
+        self.Hygiene_Section = HygieneSection()
+        self.Vegetables_Section = VegetablesSection()
 
-    def load_Entitys(self):
+    def load_entities(self):
+        print('Loading entities...')
 
-        # self.clients.append(Client())
-        # self.clients.append(Client())
-        # self.clients.append(Client())
-        # self.clients.append(Client())
-        #
-        #
-        # self.products.append(Product())
-
-        usher1 = Usher.Usher("yisca rosenblatt", 327721288, 19, 585343487, 0, 520027)
-        usher2 = Usher.Usher("rosenblatt", 596, 19, 585343487, 1, 123)
-        self.usher.append(usher1)
-        self.usher.append(usher2)
-
-
-
-    def open (self):
-        self.load_Entitys()
-        SuperMain_UI.SuperMain_UI(self).show()
-
-
-
-
-
+    def open(self):
+        print("Opening SuperMain_UI...")
+        self.meat_section.craectmeatProducts()
+        self.Hygiene_Section.craectHigieneProducts()
+        self.Vegetables_Section.craectmeatVegetablesProducts()
+        SuperMain_UI(self).show()
