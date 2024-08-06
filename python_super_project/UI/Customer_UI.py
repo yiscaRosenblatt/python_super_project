@@ -6,4 +6,6 @@ class Customer_UI:
         pass
 
     def show(self):
-        print("its Customer UI")
+        print("Hello and welcome to the Super\nwhat is your name?")
+        name = input()
+        print(f"Hello {name}\nA cashier will contact you in a second")

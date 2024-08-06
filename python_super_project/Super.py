@@ -1,4 +1,5 @@
 # In Super.py
+
 from python_super_project.Sections.HygieneSection import HygieneSection
 from python_super_project.Sections.MeatSection import MeatSection
 from python_super_project.Sections.VegetablesSection import VegetablesSection
@@ -8,11 +9,13 @@ from colorama import Fore
 
 class Super:
     def __init__(self):
+        self.cashiers = []
         self.ushers = []
         self.load_entities()
         self.meat_section = MeatSection()
         self.Hygiene_Section = HygieneSection()
         self.Vegetables_Section = VegetablesSection()
+
 
     def load_entities(self):
         print('Loading entities...')

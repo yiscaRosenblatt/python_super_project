@@ -7,7 +7,7 @@ class Usher_UI:
         self.super = super
 
     def show(self):
-        Usher.loadUsher(self.super)
+
         print("Enter your password")
         password = int(input())
         response = Usher.chakUsher(self.super.ushers, password)
@@ -15,7 +15,7 @@ class Usher_UI:
             print(f"Hello {response["user"].name}")
             self.action()
         else:
-            print("no")
+            print("Incorrect password")
 
 
     def action(self):
