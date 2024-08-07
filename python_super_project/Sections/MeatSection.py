@@ -8,6 +8,7 @@ class MeatSection:
     def __init__(self):
         self.MeatProduct = MeatProduct
         self.MeatSection: List[MeatProduct] = []
+        self.craectmeatProducts()
 
     def craectmeatProducts(self):
         self.MeatSection.append(MeatProduct("Chicken Breast", 50, 60, Date(2025, 5, 1)))

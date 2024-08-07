@@ -8,8 +8,8 @@ class HygieneSection:
 
     def __init__(self):
         self.HygieneProduct = HygieneProduct
-        self.HygieneSection: List[HygieneSection] = []
-
+        self.HygieneSection: List[HygieneProduct] = []
+        self.craectHigieneProducts()
 
     def craectHigieneProducts(self):
         self.HygieneSection.append(HygieneProduct("Toilet Paper", 50, 42, Date(2025, 5, 1)))

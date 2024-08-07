@@ -8,21 +8,22 @@ class SuperMain_UI:
         self.Super = Super
     def show (self):
         Usher.loadUsher(self.Super)
-        Cashier.loadUsher(self.Super)
+        Cashier.loadCashier(self.Super)
+
         isFine = False
         while isFine == False:
-            try:
+            # try:
                 print("who are you?\n1. employee\n2. customer")
                 someone = int(input())
                 if someone == 1:
                     Employee_UI.Employee_UI(self.Super).show()
                     isFine = True
                 elif someone == 2:
-                    Customer_UI.Customer_UI().show()
+                    Customer_UI.Customer_UI(self.Super).show()
                     isFine = True
                 else:
                     print("you need to choose 1-2")
 
-            except:
-                print("you need to choose 1-2")
+            # except:
+            #     print("you need to choose 1-2")
 

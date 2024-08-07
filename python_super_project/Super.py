@@ -11,6 +11,7 @@ class Super:
     def __init__(self):
         self.cashiers = []
         self.ushers = []
+        self.Customers = []
         self.load_entities()
         self.meat_section = MeatSection()
         self.Hygiene_Section = HygieneSection()

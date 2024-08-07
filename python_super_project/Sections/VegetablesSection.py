@@ -9,6 +9,7 @@ class VegetablesSection:
     def __init__(self):
         self.VegetablesProduct = VegetablesProduct
         self.VegetablesSection: List[VegetablesProduct] = []
+        self.craectmeatVegetablesProducts()
 
     def craectmeatVegetablesProducts(self):
         self.VegetablesSection.append(VegetablesProduct("tomato", 50, 1, Date(2025, 5, 1)))
