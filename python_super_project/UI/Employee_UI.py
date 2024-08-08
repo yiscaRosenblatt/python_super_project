@@ -12,13 +12,10 @@ class Employee_UI:
         isFine = False
         while not isFine:
             # try:
-                print("Which employee?\n1. Usher\n2. cashier\n3. shift manager\n4. Administrator")
+                print("Which employee?\n1. Usher\n3. shift manager\n4. Administrator")
                 employee = int(input())
                 if employee == 1:
                     Usher_UI(self.super).show()
-                    isFine = True
-                elif employee == 2:
-                    Cashier_UI(self.super).show()
                     isFine = True
                 elif employee == 3:
                     ShiftManager_UI(self.super).show()

@@ -46,3 +46,20 @@ class Administrator_UI:
         #     # Employee_UI.Show()
 
         return None
+
+    def show_customers(self):
+        print("Customers who bought today:")
+        for customer in self.Super.customers:
+            print(f"Customer: {customer.name}")
+            total_spent = 0
+            for receipt in customer.receipts:
+                total_spent += receipt.finalPrice  # חישוב הסכום שהוצא
+                print(f" - Product: {receipt.nameProduct}, Amount: {receipt.amount}, Price of One: {receipt.priceOfOne}, Final Price: {receipt.finalPrice}")
+            print(f"Total spent by {customer.name}: {total_spent}")
+
+    def show_total_money(self):
+        total_money = 0
+        for customer in self.Super.customers:
+            for receipt in customer.receipts:
+                total_money += receipt.finalPrice  # חישוב הסכום הכולל
+        return total_money

@@ -7,7 +7,6 @@ from python_super_project.DataModels.Product.HygieneProduct import HygieneProduc
 class HygieneSection:
 
     def __init__(self):
-        self.HygieneProduct = HygieneProduct
         self.HygieneSection: List[HygieneProduct] = []
         self.craectHigieneProducts()
 
@@ -30,8 +29,12 @@ class HygieneSection:
     @staticmethod
     def bringDownMeatProdect(self, product_index: int, amount: int):
         if 0 <= product_index < len(self.HygieneSection):
-            self.HygieneSection[product_index].amount -= amount
-            print(
-                f"bring Down {amount} {self.HygieneSection[product_index].name}. New amount: {self.HygieneSection[product_index].amount}")
+            if self.HygieneSection[product_index].amount >= amount:
+                self.HygieneSection[product_index].amount -= amount
+                print(
+                    f"Decreased {amount} {self.HygieneSection[product_index].name}. New amount: {self.HygieneSection[product_index].amount}")
+            else:
+                print(f"Not enough {self.HygieneSection[product_index].name} in stock to decrease by {amount} ther is {self.HygieneSection[product_index].amount}.")
+                return
         else:
             print("Invalid product index.")

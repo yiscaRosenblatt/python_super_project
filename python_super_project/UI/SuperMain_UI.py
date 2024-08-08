@@ -12,7 +12,7 @@ class SuperMain_UI:
 
         isFine = False
         while isFine == False:
-            # try:
+            try:
                 print("who are you?\n1. employee\n2. customer")
                 someone = int(input())
                 if someone == 1:
@@ -24,6 +24,6 @@ class SuperMain_UI:
                 else:
                     print("you need to choose 1-2")
 
-            # except:
-            #     print("you need to choose 1-2")
+            except:
+                print("you need to choose 1-2")
 

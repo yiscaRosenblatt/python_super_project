@@ -6,48 +6,94 @@ from python_super_project.Sections.VegetablesSection import VegetablesSection
 
 class Cashier_UI:
 
-    def __init__(self):
-        pass
+    def __init__(self, super_main_ui):
+        self.super_main_ui = super_main_ui
 
     # print("hello cashier. Choose your option:\n ")
 
-    def show(self):
-        pass
+
 
     def showForCustomer(self, cashier, customer: Customer):
-        print(f"hello I am {cashier.name} and I will be your Cashier")
-        print("Which section did you visit? (Press Q to finish)\n1. Hygiene\n2. Meat\n3. Vegetables")
-        choosSection = int(input())
-        print("Which Product?")
-        print("   product          price")
-        if choosSection == 1:
-            hygiene_section = HygieneSection()
-            products = hygiene_section.HygieneSection
-        elif choosSection == 2:
-            meat_section = MeatSection()
-            products = meat_section.MeatSection
-        elif choosSection == 3:
-            veg_section = VegetablesSection()
-            products = veg_section.VegetablesSection
-        else:
-            print("Invalid section. Please choose again.")
 
-        for i, product in enumerate(products, 1):
-            print(f"{i}. {product.name}   -   {product.price}")
-        product_index = int(input()) - 1
-        print("How much to add?")
-        amount = int(input())
+        try:
+            print(f"Hello, I am {cashier.name} and I will be your Cashier.")
+            while True:
+                print(
+                    "Which section did you visit? (Press Q to finish, B to go back)\n1. Hygiene\n2. Meat\n3. Vegetables")
+                choosSection = input().strip()
 
-        if choosSection == 1:
-            customer.add_product(products[product_index].name, amount, products[product_index].price, products[product_index])
-        elif choosSection == 2:
-            customer.add_product(products[product_index].name, amount, products[product_index].price, products[product_index])
-        elif choosSection == 3:
-            customer.add_product(products[product_index].name, amount, products[product_index].price, products[product_index])
+                if choosSection.upper() == 'Q':
+                    print("Finishing checkout process. Thank you!")
+                    break
+                elif choosSection.upper() == 'B':
+                    print("Going back to section selection.")
+                    continue
 
-        customer.finesh()
+                try:
+                    choosSection = int(choosSection)
+                except ValueError:
+                    print("Invalid input. Please enter a number corresponding to a section.")
+                    continue
+
+                if choosSection == 1:
+                    hygiene_section = HygieneSection()
+                    products = hygiene_section.HygieneSection
+                elif choosSection == 2:
+                    meat_section = MeatSection()
+                    products = meat_section.MeatSection
+                elif choosSection == 3:
+                    veg_section = VegetablesSection()
+                    products = veg_section.VegetablesSection
+                else:
+                    print("Invalid section. Please choose again.")
+                    continue
+
+                print("Which Product?")
+                print("   product          price")
+                for i, product in enumerate(products, 1):
+                    print(f"{i}. {product.name}   -   {product.price}")
+
+                product_index = input().strip()
+                if product_index.upper() == 'Q':
+                    print("Finishing checkout process. Thank you!")
+                    break
+                elif product_index.upper() == 'B':
+                    print("Going back to section selection.")
+                    continue
+
+                try:
+                    product_index = int(product_index) - 1
+                    if product_index < 0 or product_index >= len(products):
+                        print("Invalid product selection. Please choose again.")
+                        continue
+                except ValueError:
+                    print("Invalid input. Please enter a valid product number.")
+                    continue
+
+                print("How much to add?")
+                amount = input().strip()
+                if amount.upper() == 'Q':
+                    print("Finishing checkout process. Thank you!")
+                    break
+                elif amount.upper() == 'B':
+                    print("Going back to section selection.")
+                    continue
+
+                try:
+                    amount = int(amount)
+                except ValueError:
+                    print("Invalid input. Please enter a valid amount.")
+                    continue
+
+                customer.add_product(products[product_index].name, amount, products[product_index].price, products[product_index])
+
+            customer.finesh()
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 
+        self.super_main_ui.show()
 
 
 
