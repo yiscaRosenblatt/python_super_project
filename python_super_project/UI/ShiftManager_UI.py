@@ -66,18 +66,54 @@ class ShiftManager_UI:
                     except:
                         print("you need to choose one of the opshin")
 
+             elif option == 2:
 
-        elif option == 2:
+    print("Which employee?\n1. Cashiers\n2. Ushers")
 
-            print("Which employee?\n1. Cashiers\n2. Ushers")
-            whichEmployee = int(input())
-            if whichEmployee == 1:
-                print("1. To add\n2. To bring down")
-                addOrDelet = int(input())
-                if addOrDelet == 1 or addOrDelet == 2:
-                    print("צריך להכין מתודה של להוריד או להעלות עובדים")
-            if whichEmployee == 2:
-                print("--Ushers--\n1. To add\n2. To bring down")
-                addOrDeletUsher = int(input())
-                isFine = False
-                # while isF…
+    whichEmployee = int(input())
+
+    if whichEmployee == 1:
+
+        print("1. To Add\n2. To Delete")
+
+        addOrDeleteCashier = int(input())
+
+        isFine = False
+
+        while not isFine:
+
+            try:
+
+                if addOrDeleteCashier == 1:
+
+                    Usher.addUsher(self.super.CashierUsers, self.super.Employees)
+
+                    isFine = True
+
+                elif addOrDeleteCashier == 2:
+
+                    Usher.bringDownUsher(self.super.CashierUsers, self.super.Employees)
+
+                    isFine = True
+
+            except ValueError:
+
+                print("You need to choose one of the options")
+
+
+    elif whichEmployee == 2:
+
+        print("List of customers who made purchases today:")
+
+        self.super.showCustomerList()
+
+
+    elif option == 4:
+
+        print("List of products purchased today:")
+
+        self.super.showPurchasedProducts()
+
+
+
+
